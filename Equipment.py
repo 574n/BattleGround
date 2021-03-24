@@ -17,7 +17,7 @@ class Equipment:
         elif slot == 'chest':
             self.inventory.add_item(self.chest)
             self.chest = None
-        elif slot == 'head':
+        elif slot == 'belt':
             self.inventory.add_item(self.belt)
             self.belt = None
         elif slot == 'legs':
@@ -29,8 +29,9 @@ class Equipment:
         elif slot == 'trinket':
             self.inventory.add_item(self.trinket)
             self.trinket = None
-        else:
-            pass
+        elif slot == 'all':
+            for slot_iter in ('head','chest','belt','legs','first_weapon','trinket'):
+                self.takeoff_item(slot_iter)
 
     def equip(self, item):
         if item.slot == "head":
